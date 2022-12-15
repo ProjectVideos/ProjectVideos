@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Roboto:wght@300&display=swap');
+
+:root {
+  /* Color */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+  --blue-color: #045fd4;
+
+  /* Size */
+  --side-padding: 12px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--white-color);
+}
+
+/* header */
+header {
+  position: sticky;
+  top: 0;
+  /* sticky를주고 포지션이니까 부모로부터 0을주면 스크롤을
+  내렸을때 항상 위로 유지 시켜 준다. */
+  display: flex;
+  /* div flex로 바꿈 */
+  justify-content: space-between;
+  /* justify-content: space-between 플렉스 div들을 양옆으로 보냄 */
+  padding: var(--side-padding);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+header .logo {
+  font-size: var(--font-large);
+}
+
+header .logo i {
+  color: var(--red-color);
+}
+
+header .icons .fa-search {
+  margin-right: var(--side-padding);
+}
+
+
+/* Video Player */
+.player {
+  position: sticky;
+  top: 30px;
+  /* sticky를주고 포지션이니까 부모로부터 0을주면 스크롤을
+  내렸을때 항상 위로 유지 시켜 준다. */
+  text-align: center;
+  /* max-width: 1000px 사용해서 반응형으로 늘릴때 최대 크기를 제한
+  해놓아서 중간으로 모은다음 부자연 스럽지 않게 처리함 */
+  background-color: var(--black-color);
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 1500px;
+  max-height: 560px;
+}
+
+/* Video info */
+body > .info {
+  padding: var(--side-padding);
+}
+
+.info .metadate .hashtags {
+  display: flex;
+  font-size: var(--font-small);
+  color: var(--blue-color);
+}
+
+.info .metadate .hashtags li {
+  margin-right: var(--side-padding);
+}
+
+.info .metadate .titleAndButton {
+  display: flex;
+}
+
+.info .metadate .titleAndButton .title {
+  font-size: var(--font-medium);
+  /* 반응형 줄였을때 2줄제한 및 ...닻으로 긴 구문 처리 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  /* 반응형 줄였을때 2줄제한 및 ...닻으로 긴 구문 처리 */
+  /* 버튼과 문구 사이 간격을 줌 */
+  margin-right: var(--side-padding);
+}
+.info .metadate .titleAndButton .moreBtn {
+  height: 100%;
+}
+.info .metadate .views{
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+/* Action */
+.info .actions {
+  display: flex;
+  /* space-around 같은 간격으로 나열 시키기 */
+  justify-content: space-around;
+  /* 위아래 패딩 넣고 양옆은 없애줌 */
+  margin: var(--side-padding) 0 ;
+}
+
+.info .actions button {
+  /* 칼럼으로 i와 span들을 우아래로 정렬시켰다. */
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.info .actions button i {
+  /* 아래 마진에 패딩을 넣는데 칼크써서 반만 넣음 */
+  margin-bottom: calc(var(--side-padding)/2);
+  font-size: 16px;
+}
+.info .actions button i.active{
+  color: var(--blue-color);
+}
+
+.channel {
+  display: flex;
+  justify-content: space-between;
+  /* 위아래 1픽셀짜리 경계선 만들기 */
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+
+}
+
+.channel .metadate {
+  display: flex;
+  /* 세로축 정렬 (인포를 칼럼시키고 이미지랑 배치가 세로로 안맞아서 사용함)*/
+  align-items: center;
+}
+
+.channel .metadate img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  /* 사진 둥글게 만들기 */
+  border-radius: 50%;
+}
+
+.channel .metadate .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel .metadate .info .naem {
+  font-size: var(--font-medium);
+}
+
+.channel .metadate .info .subscribers{
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.channel .subscribe {
+  text-transform: uppercase;
+  color: var(--red-color);
+  font-size: var(--font-medium);
+}
+
+.UpNext {
+  padding: 0 var(--side-padding);
+}
+
+.UpNext > .title {
+  font-size: var(--font-medium);
+  color: var(--grey-dark-color);
+  margin-bottom: calc(var(--side-padding)/2);
+}
+
+.UpNext .item {
+  display: flex;
+}
+
+.UpNext .item .img {
+  flex : 1 1 35%;
+  margin-right: var(--side-padding);
+}
+
+.UpNext .item .img img {
+  width: 100%;
+}
+
+.UpNext .item .info{
+  flex: 1 1 60%;
+}
+
+.UpNext .item .moreBtn {
+  flex:  1 1 5%;
+}
+.UpNext .item .info {
+  display: flex;
+  flex-direction: column;
+}
